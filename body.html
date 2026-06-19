@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shafrizal portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- RESET & GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            height: 100%;
+        }
+
+        body {
+            background-color: #0c051b;
+            color: #ffffff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+
+        /* --- 1. NAVBAR & HERO SECTION (HOME) --- */
+        .main-portfolio-page {
+            background: transparent;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 20px 40px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 10px 0;
+            position: fixed;
+            top: 0; left: 0;
+            padding: 20px 40px;
+            z-index: 100;
+            background: rgba(12, 5, 27, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            background: rgba(255, 255, 255, 0.1);
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 20px;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 8px 24px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease, font-weight 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        nav a:hover, nav a.active {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .portfolio-icon-btn {
+            background: rgba(255, 255, 255, 0.1);
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .portfolio-icon-btn:hover { background: rgba(255, 255, 255, 0.2); }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+            max-width: 1300px;
+            margin: 80px auto 0 auto;
+            padding: 40px 0;
+        }
+
+        .hero-left, .hero-right { display: flex; flex-direction: column; justify-content: center; }
+        .hero-left { align-items: flex-start; }
+        .hero-right { align-items: flex-start; padding-left: 20px; }
+
+        .hero h1 { font-size: 48px; font-weight: 700; line-height: 1.2; margin-bottom: 15px; }
+        .hero h2 { font-size: 36px; font-weight: 600; margin-bottom: 15px; }
+        .hero p { font-size: 14px; color: rgba(255, 255, 255, 0.6); line-height: 1.6; margin-bottom: 25px; max-width: 380px; }
+
+        .btn-container { display: flex; gap: 15px; }
+        .btn { padding: 12px 28px; font-size: 14px; font-weight: 600; border-radius: 10px; cursor: pointer; transition: 0.3s; text-decoration: none; }
+        .btn-primary { background: #ffffff; color: #0c051b; border: none; box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2); }
+        .btn-primary:hover { background: rgba(255, 255, 255, 0.9); }
+        .btn-secondary { background: transparent; color: #ffffff; border: 2px solid rgba(255, 255, 255, 0.4); }
+        .btn-secondary:hover { border-color: #ffffff; background: rgba(255, 255, 255, 0.05); }
+
+        .hero-center { position: relative; display: flex; justify-content: center; align-items: center; }
+        .character-bg-glow { position: absolute; width: 350px; height: 350px; background: radial-gradient(circle, rgba(147, 51, 234, 0.4) 0%, rgba(0,0,0,0) 70%); z-index: 1; border-radius: 50%; }
+        .hero-center img { width: 340px; height: auto; position: relative; z-index: 2; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5)); }
+
+
+        /* --- 2. STYLES SECTION SLIDER (BLACK HOLE MEDIA) --- */
+        .black-hole-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 20px 40px 20px;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .slider-top-nav { width: 600px; max-width: 90vw; height: 50px; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; z-index: 10; }
+        .slider-nav-group { display: flex; align-items: center; gap: 15px; color: rgba(255, 255, 255, 0.7); font-size: 14px; }
+        .slider-nav-center .search-title { color: #fff; font-weight: 500; letter-spacing: 0.5px; }
+        .slider-icon-btn { cursor: pointer; transition: opacity 0.2s; user-select: none; }
+        .slider-icon-btn:hover { opacity: 0.7; }
+
+        .carousel-wrapper { position: relative; display: flex; align-items: center; justify-content: center; width: 100%; max-width: 1200px; height: 450px; margin: auto; }
+        .carousel-container { position: relative; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; perspective: 1200px; }
+        .card { position: absolute; width: 240px; height: 340px; border-radius: 24px; overflow: hidden; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s, z-index 0.6s; box-shadow: 0 15px 35px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); cursor: pointer; user-select: none; }
+        .card-bg { width: 100%; height: 100%; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; position: relative; }
+        .card-bg::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60%; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); z-index: 1; }
+        .card-info { position: relative; z-index: 2; }
+        .card-info h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .card-info p { font-size: 12px; color: rgba(255, 255, 255, 0.7); }
+
+        .card.side-left-2 { transform: translateX(-350px) translateZ(-200px) rotateY(35deg); z-index: 1; opacity: 0.35; }
+        .card.side-left-1 { transform: translateX(-180px) translateZ(-100px) rotateY(20deg); z-index: 2; opacity: 0.7; }
+        .card.active { transform: translateX(0) translateZ(100px) rotateY(0deg); z-index: 5; opacity: 1; width: 280px; height: 380px; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 25px 50px rgba(0,0,0,0.8); }
+        .card.side-right-1 { transform: translateX(180px) translateZ(-100px) rotateY(-20deg); z-index: 2; opacity: 0.7; }
+        .card.side-right-2 { transform: translateX(350px) translateZ(-200px) rotateY(-35deg); z-index: 1; opacity: 0.35; }
+        .card.hidden-left { transform: translateX(-500px) translateZ(-300px); opacity: 0; z-index: 0; pointer-events: none; }
+        .card.hidden-right { transform: translateX(500px) translateZ(-300px); opacity: 0; z-index: 0; pointer-events: none; }
+
+        .arrow-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 50px; height: 50px; background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 50%; color: white; font-size: 18px; display: flex; justify-content: center; align-items: center; cursor: pointer; z-index: 20; transition: 0.3s; backdrop-filter: blur(10px); }
+        .arrow-btn:hover { background: rgba(255, 255, 255, 0.2); scale: 1.1; }
+        .arrow-prev { left: 20px; }
+        .arrow-next { right: 20px; }
+
+        .bottom-player { width: 650px; max-width: 95vw; height: 60px; display: flex; justify-content: space-between; align-items: center; padding: 0 25px; z-index: 10; }
+        .player-left, .player-right { display: flex; align-items: center; gap: 20px; font-size: 18px; color: rgba(255, 255, 255, 0.8); }
+        .player-center { display: flex; align-items: center; gap: 12px; background: rgba(255, 255, 255, 0.05); padding: 6px 16px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .mini-album-art { width: 32px; height: 32px; border-radius: 6px; background-size: cover; background-position: center; transition: background-image 0.3s ease; }
+        .track-details { display: flex; flex-direction: column; min-width: 150px; }
+        .track-details .title { font-size: 13px; font-weight: 500; }
+        .track-details .artist { font-size: 11px; color: rgba(255, 255, 255, 0.5); }
+
+
+        /* --- 3. PROFILE SECTION (YUDHA PRADANA) --- */
+        .profile-section {
+            min-height: 100vh;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 60px 40px;
+            position: relative;
+        }
+
+        .profile-grid-container {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            width: 100%;
+            max-width: 1200px;
+            align-items: start;
+        }
+
+        .profile-left-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-avatar-wrapper {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-avatar-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, #9333ea 0%, transparent 70%);
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .profile-avatar-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            mask-image: radial-gradient(circle, black 60%, transparent 100%);
+            -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);
+        }
+
+        .profile-title-area h4 { font-size: 14px; font-weight: 400; color: rgba(255, 255, 255, 0.6); letter-spacing: 2px; margin-bottom: 5px; }
+        .profile-title-area h2 { font-size: 32px; font-weight: 700; letter-spacing: 1px; color: #ffffff; text-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+
+        .profile-right-panel { display: flex; flex-direction: column; gap: 30px; }
+        .info-card h3 { font-size: 16px; font-weight: 600; letter-spacing: 1.5px; color: #ffffff; margin-bottom: 12px; border-left: 3px solid #9333ea; padding-left: 10px; text-transform: uppercase; }
+        .info-card p { font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.7; text-align: justify; }
+
+        .skills-icon-list { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 5px; }
+        
+        /* --- CSS UNTUK SKILL BADGE DENGAN GAMBAR --- */
+        .skill-badge { 
+            width: 45px; 
+            height: 45px; 
+            border-radius: 12px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+            border: 1px solid rgba(255,255,255,0.1); 
+            overflow: hidden;
+        }
+
+        /* Diperbarui agar gambar icon tampil FULL dan rapi memenuhi badge */
+        .skill-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mempertahankan warna gradien latar belakang untuk keindahan estetika icon transparan (PNG) */
+        .badge-am { background: linear-gradient(135deg, #1f2937, #111827); border: 1px solid rgba(52, 211, 153, 0.4); }
+        .badge-picsart { background: linear-gradient(45deg, #ec4899, #8b5cf6); }
+        .badge-capcut { background: #000000; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .badge-pixellab { background: linear-gradient(135deg, #0ea5e9, #0284c7); }
+        .badge-wink { background: linear-gradient(135deg, #ff65a3, #ff8ebb); }
+
+        .sub-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .meta-list { list-style: none; }
+        .meta-list li { font-size: 13px; color: rgba(255, 255, 255, 0.7); margin-bottom: 6px; line-height: 1.5; }
+        .meta-list li strong { color: #ffffff; display: block; font-size: 14px; font-weight: 500; }
+        .meta-list li span { color: rgba(255, 255, 255, 0.4); font-size: 12px; }
+
+        .lang-container { display: flex; flex-direction: column; gap: 12px; }
+        .lang-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; }
+        .lang-dots-linker { flex-grow: 1; border-bottom: 2px dotted rgba(255, 255, 255, 0.2); margin: 0 15px; position: relative; top: -4px; }
+        .lang-percent { color: #a855f7; font-weight: 600; }
+
+
+        /* --- 4. NEW PROJECTS SECTION (GRID MOCKUP STYLE) --- */
+        .projects-section {
+            min-height: 100vh;
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        .projects-container {
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 45px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .projects-title {
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 45px;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .projects-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #9333ea;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+        }
+
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .project-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .project-card {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #a855f7;
+            box-shadow: 0 12px 24px rgba(147, 51, 234, 0.25);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* --- 5. DETAILED MULTI-COLUMN FOOTER SYSTEM --- */
+        .detailed-footer {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 70px 40px 30px 40px;
+            position: relative;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .footer-grid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 25px;
+            height: 2px;
+            background-color: #9333ea;
+        }
+
+        .footer-col p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 12px; }
+        
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.3s, padding-left 0.3s;
+            display: inline-block;
+        }
+
+        .footer-col ul li a:hover {
+            color: #a855f7;
+            padding-left: 6px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-contact-item i {
+            color: #a855f7;
+            font-size: 14px;
+            width: 20px;
+        }
+
+        .footer-social-block {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .footer-social-block a {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .footer-social-block a:hover {
+            color: #ffffff;
+            background: #9333ea;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
+        }
+
+        .footer-bottom-bar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+
+        /* --- GLOBAL CONFIG ANIMATION RE-TRIGGER --- */
+        .hero-left, .hero-center, .hero-right {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .main-portfolio-page.section-active .hero-left { opacity: 1; transform: translateY(0); transition-delay: 0.0s; }
+        .main-portfolio-page.section-active .hero-center { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+        .main-portfolio-page.section-active .hero-right { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+
+        .slider-top-nav, .carousel-wrapper, .bottom-player {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .black-hole-section.section-active .slider-top-nav { opacity: 1; transform: translateY(0); transition-delay: 0.0s; }
+        .black-hole-section.section-active .carousel-wrapper { opacity: 1; transform: translateY(0); transition-delay: 0.15s; }
+        .black-hole-section.section-active .bottom-player { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+
+        .profile-left-panel, .profile-right-panel .info-card {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .profile-section.section-active .profile-left-panel { opacity: 1; transform: translateY(0); transition-delay: 0.0s; }
+        .profile-section.section-active .info-card:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.1s; }
+        .profile-section.section-active .info-card:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.2s; }
+        .profile-section.section-active .info-card:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.3s; }
+
+        .projects-container {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .projects-section.section-active .projects-container { opacity: 1; transform: translateY(0); }
+
+
+        /* --- RESPONSIVE LAYOUT --- */
+        @media (max-width: 1100px) {
+            .projects-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 968px) {
+            .main-portfolio-page { padding: 20px; }
+            .hero { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+            .hero-left, .hero-right { align-items: center; padding-left: 0; }
+            .hero p { max-width: 100%; }
+            .hero-center img { width: 280px; }
+            .profile-grid-container { grid-template-columns: 1fr; gap: 40px; }
+            .sub-info-grid { grid-template-columns: 1fr; }
+            .footer-grid-container { grid-template-columns: 1fr 1fr; gap: 30px; }
+            header { padding: 15px 20px; }
+            nav { gap: 12px; padding: 6px 16px; }
+        }
+        @media (max-width: 768px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .projects-container { padding: 25px; }
+        }
+        @media (max-width: 576px) {
+            .footer-grid-container { grid-template-columns: 1fr; }
+            .footer-bottom-bar { flex-direction: column; text-align: center; }
+        }
+        @media (max-width: 480px) {
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="audioPlayer"></audio>
+
+    <div class="main-portfolio-page" id="home-section">
+        <header>
+            <div class="logo">YP</div>
+            <nav id="main-nav">
+                <a href="#home-section" class="nav-link active">Home</a>
+                <a href="#black-hole-ui" class="nav-link">Music</a>
+                <a href="#profile-section" class="nav-link">Profile</a>
+                <a href="#projects-section" class="nav-link">Projects</a>
+            </nav>
+            <div class="header-icons">
+                <button class="portfolio-icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="portfolio-icon-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <main class="hero">
+            <div class="hero-left">
+                <h1>Welcome<br>to my website</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div class="btn-container">
+                    <a href="#" class="btn btn-primary">Register</a>
+                    <a href="#black-hole-ui" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+
+            <div class="hero-center">
+                <div class="character-bg-glow"></div>
+                <img src="picture/rizal.png" alt="Anime Character">
+            </div>
+
+            <div class="hero-right">
+                <h2>About me</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <a href="#profile-section" class="btn btn-primary">View Full Profile</a>
+            </div>
+        </main>
+    </div>
+
+
+    <section id="black-hole-ui" class="black-hole-section">
+        <div class="slider-top-nav glass-panel">
+            <div class="slider-nav-group"><span class="slider-icon-btn">🌐</span><span class="slider-icon-btn">◀</span><span class="slider-icon-btn">▶</span></div>
+            <div class="slider-nav-group slider-nav-center"><span class="slider-icon-btn" style="font-size: 12px;">AA</span><span class="search-title">My Favorite Music</span><span class="slider-icon-btn">🔄</span></div>
+            <div class="slider-nav-group"><span class="slider-icon-btn">⬇</span><span class="slider-icon-btn">📤</span><span class="slider-icon-btn">＋</span><span class="slider-icon-btn">🗖</span></div>
+        </div>
+
+        <div class="carousel-wrapper">
+            <button class="arrow-btn arrow-prev" id="prevBtn">◀</button>
+            <div class="carousel-container" id="carouselContainer">
+                <div class="card" data-title="Monokrom" data-artist="Tulus" data-img="picture/monokrom.jpg" data-audio="Music/Monokrom.mp3">
+                    <div class="card-bg" style="background-image: url('picture/monokrom.jpg');">
+                        <div class="card-info"><p style="color: #ff3366; font-size: 9px; font-weight: bold;">HBO ORIGINAL</p><h3>Monokrom</h3><p>Tulus</p></div>
+                    </div>
+                </div>
+                <div class="card" data-title="Ribuan Memori" data-artist="Lomba Sihir" data-img="picture/ribuanmemori.png" data-audio="Music/Ribuan Memori.mp3">
+                    <div class="card-bg" style="background-image: url('picture/ribuanmemori.png');">
+                        <div class="card-info"><h3>Ribuan Memori</h3><p>Lomba Sihir</p></div>
+                    </div>
+                </div>
+                <div class="card" data-title="Cincin" data-artist="Hindia" data-img="picture/cincin.jpg" data-audio="Music/Cincin.mp3">
+                    <div class="card-bg" style="background-image: url('picture/cincin.jpg');">
+                        <div class="card-info"><h3>Cincin</h3><p>Hindia</p></div>
+                    </div>
+                </div>
+                <div class="card" data-title="Shape of My Heart" data-artist="Backstreet Boys" data-img="picture/boy.jpg" data-audio="Music/Shape of My Heart.mp3">
+                    <div class="card-bg" style="background-image: url('picture/boy.jpg');">
+                        <div class="card-info"><h3>Shape Of My Heart</h3><p>Backstreet Boys</p></div>
+                    </div>
+                </div>
+                <div class="card" data-title="Everithing U Are" data-artist="Hindia" data-img="picture/everithing\ u\ are.jpg" data-audio="Music/everything u are.mp3">
+                    <div class="card-bg" style="background-image: url('picture/everithing\ u\ are.jpg');">
+                        <div class="card-info"><h3>Everithing U Are</h3><p>Hindia</p></div>
+                    </div>
+                </div>
+            </div>
+            <button class="arrow-btn arrow-next" id="nextBtn">▶</button>
+        </div>
+
+        <div class="bottom-player glass-panel">
+            <div class="player-left"><span class="slider-icon-btn" id="playerPrev">⏮</span><span class="slider-icon-btn" id="playPauseBtn" style="font-size: 22px;">▶</span><span class="slider-icon-btn" id="playerNext">⏭</span></div>
+            <div class="player-center">
+                <div class="mini-album-art" id="miniArt"></div>
+                <div class="track-details"><span class="title" id="playerTitle">Stay</span><span class="artist" id="playerArtist">The Kid LAROI</span></div>
+                <span class="slider-icon-btn" style="font-size: 12px; margin-left: 10px; opacity: 0.6;">▤</span>
+            </div>
+            <div class="player-right"><span class="slider-icon-btn">💬</span><span class="slider-icon-btn">☰</span><span class="slider-icon-btn">🔊</span></div>
+        </div>
+    </section>
+
+
+    <section id="profile-section" class="profile-section">
+        <div class="profile-grid-container">
+            <div class="profile-left-panel">
+                <div class="profile-avatar-wrapper">
+                    <div class="profile-avatar-glow"></div>
+                    <img src="picture/rizal.png" alt="Yudha Pradana">
+                </div>
+                <div class="profile-title-area">
+                    <h4>HELLO, I AM</h4>
+                    <h2>SHAFRIZAL</h2>
+                </div>
+            </div>
+
+            <div class="profile-right-panel">
+                <div class="info-card">
+                    <h3>About Me</h3>
+                    <p>Aku mulai suka editing sejak 2020 waktu COVID, awalnya iseng biar nggak bosen eh malah jadi hobi. Main game console udah dari umur 7 tahun, jadi ngerti dikit-dikit soal gameplay dan visual yang enak dilihat.Masuk SMK kelas 1 jurusan RPL, aku mulai suka coding. Sekarang hobiku nyambung semua: ngedit buat kreativitas, main game buat referensi, coding buat wujudin ide jadi aplikasi..</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Software Skills</h3>
+                    <div class="skills-icon-list">
+                        <div class="skill-badge badge-am" title="Alight Motion">
+                            <img src="picture/am.jpg" alt="Alight Motion">
+                        </div>
+                        <div class="skill-badge badge-picsart" title="PicsArt">
+                            <img src="picture/picsart.jpg" alt="PicsArt">
+                        </div>
+                        <div class="skill-badge badge-capcut" title="CapCut">
+                            <img src="picture/capcut.jpg" alt="CapCut">
+                        </div>
+                        <div class="skill-badge badge-pixellab" title="PixelLab">
+                            <img src="picture/pixelab.jpg" alt="PixelLab">
+                        </div>
+                        <div class="skill-badge badge-wink" title="Wink">
+                            <img src="picture/wink.jpg" alt="Wink">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sub-info-grid">
+                    <div class="info-card">
+                        <h3>Education</h3>
+                        <ul class="meta-list">
+                            <li>
+                                <strong>SMK NEGERI 1 AIR PUTIH</strong>
+                                <span>2019 - GOING ON • Multimedia / Desain Grafis</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Languages</h3>
+                        <div class="lang-container">
+                            <div class="lang-row">
+                                <span>Indonesia</span>
+                                <div class="lang-dots-linker"></div>
+                                <span class="lang-percent">100%</span>
+                            </div>
+                            <div class="lang-row">
+                                <span>English</span>
+                                <div class="lang-dots-linker"></div>
+                                <span class="lang-percent">30%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="projects-section" class="projects-section">
+        <div class="projects-container">
+            <h2 class="projects-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-card">
+                        <img src="picture/absurd.jpeg" alt="ID Card Design">
+                    </div>
+                    <p class="project-label">TYPOGRAPHY</p>
+                </div>
+                <div class="project-item">
+                    <div class="project-card">
+                        <img src="picture/PORTO.jpeg" alt="Pamflet Design">
+                    </div>
+                    <p class="project-label">PORTFOLIO</p>
+                </div>
+                <div class="project-item">
+                    <div class="project-card">
+                        <img src="picture/lembu.jpeg" alt="Instagram Creative">
+                    </div>
+                    <p class="project-label">POSTER</p>
+                </div>
+                <div class="project-item">
+                    <div class="project-card">
+                        <img src="picture/kartini.jpeg" alt="Sketsa Vector">
+                    </div>
+                    <p class="project-label">POSTER</p>
+                </div>
+                <div class="project-item">
+                    <div class="project-card">
+                        <img src="picture/idulfitri.jpeg" alt="Logo Branding">
+                    </div>
+                    <p class="project-label">POSTER</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="detailed-footer">
+        <div class="footer-grid-container">
+            <div class="footer-col">
+                <h3>YP Creative</h3>
+                <p>Aku mulai tertarik sama editing sejak 2020, pas masa COVID lagi rame-ramenya. Awalnya iseng ngedit video biar nggak bosen di rumah, eh malah ketagihan dan jadi hobi sampai sekarang.Selain editing, aku juga udah main game console sejak umur 7 tahun. Jadi bisa dibilang game udah nemenin aku dari kecil sampai sekarang. Dari main buat seru-seruan, lama-lama jadi ngerti feel gameplay dan visual yang enak diliat.Terus waktu masuk SMK kelas 1, aku mulai suka coding. Sekarang aku ambil jurusan RPL, alias Rekayasa Perangkat Lunak. Dari situ aku belajar bikin aplikasi dan makin suka otak-atik logika biar semuanya jalan sesuai rencana.Jadi sekarang kombinasi hobiku gitu: ngedit buat nyalurin kreativitas visual, main game buat hiburan sekaligus referensi, dan coding buat bikin ide jadi nyata.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home-section">Home</a></li>
+                    <li><a href="#black-hole-ui">Music</a></li>
+                    <li><a href="#profile-section">Profile</a></li>
+                    <li><a href="#projects-section">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>mr.shafrizall@gmail.com</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Indonesia</span>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Social Block</h3>
+                <div class="footer-social-block">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom-bar">
+            <span>&copy; 2026 Shafrizal. All Rights Reserved.</span>
+            <span>Created with passion.</span>
+        </div>
+    </footer>
+
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const playerPrev = document.getElementById('playerPrev');
+        const playerNext = document.getElementById('playerNext');
+        const playerTitle = document.getElementById('playerTitle');
+        const playerArtist = document.getElementById('playerArtist');
+        const miniArt = document.getElementById('miniArt');
+        
+        // Pembaruan Variabel Audio Player
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        let isPlaying = false;
+
+        let currentIndex = 0;
+        const totalCards = cards.length;
+
+        function updateCarousel() {
+            cards.forEach((card, index) => {
+                card.className = 'card';
+                
+                let offset = index - currentIndex;
+                if (offset > totalCards / 2) offset -= totalCards;
+                if (offset < -totalCards / 2) offset += totalCards;
+
+                if (offset === 0) {
+                    card.classList.add('active');
+                    playerTitle.innerText = card.getAttribute('data-title');
+                    playerArtist.innerText = card.getAttribute('data-artist');
+                    miniArt.style.backgroundImage = `url('${card.getAttribute('data-img')}')`;
+                    
+                    // Logika pergantian track otomatis saat digeser
+                    const audioSrc = card.getAttribute('data-audio');
+                    if (audioPlayer.src !== audioSrc) {
+                        audioPlayer.src = audioSrc;
+                        // Jika status sedang playing, langsung putar lagu berikutnya yang aktif
+                        if (isPlaying) {
+                            audioPlayer.play().catch(err => console.log("Playback error:", err));
+                        }
+                    }
+                } else if (offset === -1) {
+                    card.classList.add('side-left-1');
+                } else if (offset === -2) {
+                    card.classList.add('side-left-2');
+                } else if (offset === 1) {
+                    card.classList.add('side-right-1');
+                } else if (offset === 2) {
+                    card.classList.add('side-right-2');
+                } else {
+                    card.classList.add(offset < 0 ? 'hidden-left' : 'hidden-right');
+                }
+            });
+        }
+
+        // Fungsi kontrol play dan pause
+        function togglePlayPause() {
+            if (isPlaying) {
+                audioPlayer.pause();
+                playPauseBtn.innerText = '▶';
+                isPlaying = false;
+            } else {
+                audioPlayer.play().then(() => {
+                    playPauseBtn.innerText = '⏸';
+                    isPlaying = true;
+                }).catch(err => {
+                    console.log("Interaksi user diperlukan terlebih dahulu:", err);
+                });
+            }
+        }
+
+        playPauseBtn.onclick = togglePlayPause;
+
+        const nextSlide = () => { currentIndex = (currentIndex + 1) % totalCards; updateCarousel(); };
+        const prevSlide = () => { currentIndex = (currentIndex - 1 + totalCards) % totalCards; updateCarousel(); };
+
+        nextBtn.onclick = nextSlide;
+        prevBtn.onclick = prevSlide;
+        if (playerNext) playerNext.onclick = nextSlide;
+        if (playerPrev) playerPrev.onclick = prevSlide;
+        
+        cards.forEach((card, i) => card.onclick = () => { currentIndex = i; updateCarousel(); });
+
+        // Trigger Animasi Scroll Menggunakan Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('section-active');
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.main-portfolio-page, .black-hole-section, .profile-section, .projects-section').forEach(sec => observer.observe(sec));
+        
+        // Inisialisasi awal slider
+        updateCarousel();
+    </script>
+</body>
+</html>
